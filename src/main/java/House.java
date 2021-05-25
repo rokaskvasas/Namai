@@ -21,16 +21,16 @@ public class House {
         this.type = type;
     }
 
-    static int QuantityOfHouses(ArrayList<House> array) {
+    public static int QuantityOfHouses(ArrayList<House> array) {
         return array.size();
     }
 
-    static void printArray(ArrayList<House> array) {
+    public static void printArray(ArrayList<House> array) {
         for (House x : array) {
             System.out.println(String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", x.id, x.title, x.address, x.city, x.type, x.price, x.isSold));
         }
     }
-    static  void filterHouseType( ArrayList<House> array, ArrayList<House> house,ArrayList<House> tower, ArrayList<House> other,ArrayList<House> church) {
+    public static  void filterHouseType( ArrayList<House> array, ArrayList<House> house,ArrayList<House> tower, ArrayList<House> other,ArrayList<House> church) {
         for (House x : array) {
             switch (x.type) {
                 case HOUSE:
@@ -48,7 +48,7 @@ public class House {
             }
         }
     }
-    static void filterHouseByPrice(ArrayList<House> array,ArrayList<House> normal,ArrayList<House> expensive){
+    public static void filterHouseByPrice(ArrayList<House> array,ArrayList<House> normal,ArrayList<House> expensive){
         for (House x : array) {
             if (x.price < TaskHouse.expensivePrice) {
                 normal.add(x);
@@ -57,7 +57,7 @@ public class House {
             }
         }
     }
-    static House theMostExpensive(ArrayList<House> array){
+    public static House theMostExpensive(ArrayList<House> array){
         House mostexpensive=null;
         for(House x:array) {
             if(mostexpensive ==null){
@@ -70,14 +70,14 @@ public class House {
         }
         return mostexpensive;
     }
-    static void findHouse(ArrayList<House> array, int id) {
+    public static void findHouse(ArrayList<House> array, int id) {
         for (House x : array) {
             if (x.id==id) {
                 System.out.println(String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", x.id, x.title, x.address, x.city, x.type, x.price, x.isSold));
             }
         }
     }
-    static void sellhouse(int id,double price, ArrayList<House> array) {
+    public static void sellhouse(int id,double price, ArrayList<House> array) {
         for (House x : array) {
             if (x.id == id) {
                 if (price > x.price) {
