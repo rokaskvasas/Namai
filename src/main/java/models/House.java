@@ -1,14 +1,39 @@
+package models;
+
 import java.util.ArrayList;
 
 public class House {
     int id;
-    String title;
-    String address;
-    String zipCode;
-    String city;
+    String title,address,zipCode,city;
     double price;
     boolean isSold;
     TypeEnum type;
+
+//region getter&setter
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isSold() {
+        return isSold;
+    }
+
+    public void setSold(boolean sold) {
+        isSold = sold;
+    }
+
+    public TypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TypeEnum type) {
+        this.type = type;
+    }
+    //endregion
 
     public House(int id, String title, String address, String zipCode, String city, double price, boolean isSold, TypeEnum type) {
         this.id = id;
@@ -27,7 +52,7 @@ public class House {
 
     public static void printArray(ArrayList<House> array) {
         for (House x : array) {
-            System.out.println(String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", x.id, x.title, x.address, x.city, x.type, x.price, x.isSold));
+            System.out.println(x);
         }
     }
     public static  void filterHouseType( ArrayList<House> array, ArrayList<House> house,ArrayList<House> tower, ArrayList<House> other,ArrayList<House> church) {
@@ -50,7 +75,7 @@ public class House {
     }
     public static void filterHouseByPrice(ArrayList<House> array,ArrayList<House> normal,ArrayList<House> expensive){
         for (House x : array) {
-            if (x.price < TaskHouse.expensivePrice) {
+            if (x.price < 200000.00) {
                 normal.add(x);
             } else {
                 expensive.add(x);
@@ -73,7 +98,7 @@ public class House {
     public static void findHouse(ArrayList<House> array, int id) {
         for (House x : array) {
             if (x.id==id) {
-                System.out.println(String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", x.id, x.title, x.address, x.city, x.type, x.price, x.isSold));
+                System.out.println(x);
             }
         }
     }
@@ -87,5 +112,7 @@ public class House {
             }
         }
     }
-    public String printInfo(){return String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", this.id, this.title, this.address, this.city, this.type, this.price, this.isSold);}
+    @Override
+    public String toString(){
+        return String.format("Id:%s, Title:%s, Address:%s, City:%s, Type:%s, Price:%s, Sold:%s", this.id, this.title, this.address, this.city, this.type, this.price, this.isSold);}
 }
